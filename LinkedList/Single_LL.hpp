@@ -8,8 +8,9 @@ void insert_front(NODE *head);
 void insert_rear(NODE *head);
 void insert_after_node(NODE *head);
 void insert_at_pos(NODE *head,int pos,int val);
-/*Node delete_front(NODE first);
-Node delete_rear(NODE first);
+void delete_all(NODE *head);
+void delete_front(NODE *head,int val);
+/*Node delete_rear(NODE first);
 Node delete_at_pos(NODE first,int pos);
 Node delete_key(NODE first,int key);*/
 

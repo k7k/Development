@@ -14,6 +14,7 @@ NODE getNode()
 
 void print(NODE head)
 {
+	cout<<"Items in List are:\n";
 	for(NODE tmp = head; tmp != NULL; tmp = tmp->link)
 	{
 		cout<<tmp->info<<" "<<std::endl;
@@ -91,7 +92,6 @@ void insert_at_pos(NODE *head,int pos,int val)
 		cur=cur->link;
 		count++;
 	}
-	cout<<"count: "<<count<<"\n";
 	/* to insert at position after last node*/
 	if(count == pos-1)
 	{
@@ -109,28 +109,52 @@ void insert_at_pos(NODE *head,int pos,int val)
 	return;
 }
 
-int main()
+void delete_front(NODE *head,int val)
 {
-	NODE head=NULL;
-	cout<<"---------inserting front---------\n";
-	insert_front(&head,10);
-	insert_front(&head,20);
-	insert_front(&head,30);
-	print(head);
-	cout<<"----------inserting rear ------------\n";
-	insert_rear(&head,40);
-        insert_rear(&head,50);
-	print(head);
-	cout<<"----------inserting after given node-----\n";
-	insert_after_node(head,111);
-	insert_after_node(head->link->link,222);
-	insert_after_node(head->link->link->link->link,333);
-	print(head);
-	cout<<"---------inserting at postion--------\n";
-	insert_at_pos(&head,1,99);
-	insert_at_pos(&head,5,88);
-	insert_at_pos(&head,10,77);
-	insert_at_pos(&head,13,66);
-	print(head);	
-	return 0;
+	
+	NODE cur=*head;
+	if(*head == NULL)
+	{
+		cout<<"no nodes present\n";
+		return;
+	}
+	if((*head) != NULL && (*head)->info == val)
+	{
+		*head = (*head)->link;
+		free(cur);
+		return;
+	}
+	NODE prev = NULL;
+	while(cur != NULL && cur->info != val)
+	{
+		prev = cur;
+		cur = cur->link;
+	}
+	if(cur == NULL)
+	{
+		cout<<"item not found\n";
+		return;
+	}
+	prev->link = cur->link;
+	free(cur);
+	return;
+}
+
+void delete_all(NODE *head)
+{
+	if(*head == NULL)
+	{
+		cout<<"No items in the list\n";
+		return;
+	}
+	NODE cur = *head;
+	while(cur != NULL)
+	{
+		cout<<"deleting :"<<cur->info<<"\n";
+		
+		*head = (*head)->link;
+		free(cur);
+		cur = *head;
+	}
+	return;
 }
