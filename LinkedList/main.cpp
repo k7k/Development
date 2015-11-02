@@ -1,5 +1,5 @@
 #include<iostream>
-#include "Single_LL.cpp"
+#include "Single_LL.hpp"
 
 using namespace std;
 
@@ -15,7 +15,7 @@ int main()
 		2. insert_rear\n \
 		3. insert_after_node\n\
 		4. insert_at_pos\n\
-		5. delete_front \n\
+		5. delete_key \n\
 		6. delete all\n\
 		7. print list\n\
 		8. exit\n";
@@ -75,7 +75,7 @@ int main()
 				int val;
 				cout<<"Enter the item to be deleted\n";
 				cin >> val;
-				delete_front(&head,val);
+				delete_key(&head,val);
 				cout<<"After deletion items are:\n";
 				print(head);
 				cout<<"want delete more:y/n ?\n";

@@ -109,7 +109,7 @@ void insert_at_pos(NODE *head,int pos,int val)
 	return;
 }
 
-void delete_front(NODE *head,int val)
+void delete_key(NODE *head,int val)
 {
 	
 	NODE cur=*head;
