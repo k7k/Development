@@ -14,6 +14,15 @@ int main()
                 }
                 num = num >> 1;
         }
+
+	/*
+	subtract 1 from n toggles all the bits
+	while(n) {
+		n &= (n-1);
+		count++;
+	}
+
+	*/
         cout<<"Number of bits set in the given number "<<num<<" is "<<count<<endl;
         return 0;
 }
