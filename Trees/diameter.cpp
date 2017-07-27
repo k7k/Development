@@ -13,7 +13,7 @@ int getHeight(struct Tree *root)
 		return (1+ max(getHeight(root->left),getHeight(root->right)));
 	}
 }
-
+//number of nodes on the longest path between two leaves
 int diameter(struct Tree* tree)
 {
 	if(tree == NULL)
