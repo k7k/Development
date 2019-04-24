@@ -37,7 +37,7 @@ void reversePrint(char *str)
 
 int main()
 {
-	char s[100]="this is test prog";
+	char s[100]="this is test prog"; // output: prog test is this
 	cout<<s<<endl;
 	reversePrint(s);
 	cout<<s<<endl;
