@@ -1,0 +1,62 @@
+Critical Floor: The floor from which, upon drop of an egg causes it to break.All the floors above the critical floor will also break the egg upon drop from them.All the floors below the critical floor are safe floors,i.e. eggs won’t break upon drop from that floor.
+
+1 Egg and k floors:
+
+AIM:we need to find the minimum number of drops required to perfectly figure out the critical floor number.
+
+we have only one egg, so the obvious solution is to throw the egg from 1st floor,
+
+If it breaks then first floor is the critical floor, if it doesn’t break continue testing from 2nd floor, 3rd floor and so on, until the the egg breaks at the required floor.
+
+So, with 1 egg and k floors the worst case is to drop the egg k times
+
+2 Eggs and k floors
+
+Why not Binary Search?
+
+Suppose, we proceed using binary search, and let k=100, we take 50th floor first and test it.
+
+What if the egg breaks? we have to test for the remaining 1 to 49 floors with only 1 egg remaining, that requires 49 more drops in the worst case where the required floor is 49th floor.
+
+Binary search is ruled out as it cannot give us critical floor with optimal number of drops using only 2 eggs.
+
+If we had infinite supply of eggs then binary search is the best method.
+
+Optimal Solution:
+
+Assume we have to drop 2 eggs at most xnumber of times.(Keep this in mind)
+
+We need to find out the optimal minimum value of x,for which we can find the critical floor.
+
+A good way to start this problem is to ask "Are we able to cover all the floors withx drops?"
+
+We should start at the xth floor, because if the egg breaks, you will have to check floors 1,2,3,…,x−2 and x−1, so the total number of drops will be x.
+
+If it doesn't break, you will have to check the(x+(x−1)) th floor.
+
+If the egg breaks,In the worst case, you will have to check the floors(x+1),(x+2),…,(x+(x−1)−1). Hence, the number of drops will be ((x+(x−1)−1)−(x+1)+1)+2=x.Here, 2 is added it accounts for the xth floor drop and (x+(x−1))th floor drop.
+
+Do you realize what we are doing? Based on the assumption that the number of drops will always be xin the worst case, we find the floors where we should drop the egg. The crucial point here is understanding that we are not trying to find the minimum number of drops knowing the best strategy; actually, we are trying to find the best strategy supposing that the minimum number of drops isx, and we have to determine if covering all the floors using at most x attempts is possible or not.
+
+Carrying out the analytical solution to this problem,
+
+In our attempt, we will drop the egg at the xth floor,covering xfloors, then we will drop it at the (x+(x−1)) th floor, coveringx−1 floors, and the third drop would be at the (x+(x−1)+(x−2))th floor, covering
+
+x−2 floors. We can see that using this strategy we would cover
+
+x+(x−1)+(x−2)+…+2+1=x(x+1)/2 floors
+
+to get solution for k floors, we need
+
+x(x+1)/2>=k
+
+which on solving gives x=ceil(−1+sqrt(1+8k))/2)
+
+2 eggs and 100 floors:
+
+This is a special case of the above problem with k=100,
+
+on substituting the value of k we get x=ceil(13.65)=14
+
+using the above process we will have the below scenario for 2 eggs and 100 floors
+
