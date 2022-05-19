@@ -25,3 +25,25 @@ int main()
     fun(t); 
     return 0; 
 } 
+
+/* output:
+
+Constructor is executed
+Destructor is executed
+check 1
+Constructor is executed
+check 2
+Constructor is executed
+Destructor is executed
+check 3
+Destructor is executed
+Destructor is executed  << in case of fun(Test &t) one destructor wont be called >>
+funnnnn....
+Constructor is executed
+Destructor is executed
+check 3
+Destructor is executed
+Destructor is executed
+Destructor is executed
+
+*/
