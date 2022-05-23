@@ -8,6 +8,7 @@ void swap(int *a,int *b)
         *b=tmp;
 }
 
+/* not working for all cases, needs fix */
 int partition(int arr[],int l,int r)
 {
 	int i,j,p;
