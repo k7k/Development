@@ -32,7 +32,7 @@ int printKnodes(Tree* root,int target,int dist)
 		if(d1+1 == dist)
 			cout<<root->data<<endl;
 		else
-			printKdown(root->right,dist-d1-2);
+			printKdown(root->right,dist-d1-2); //right child 2 edges away from left child
 
 		return d1+1;
 	}
