@@ -27,6 +27,19 @@ void leftRorate(int a[], int n, int d)
     swap(a, 0, n-1);
 }
 
+void rightRorate(int a[], int n, int d)
+{
+    if (d == 0)
+    return;
+    
+    if(d>n)
+    d = d%n;
+    
+    swap(a, (n-d), n-1);
+    swap(a, 0, (n-d-1));
+    swap(a, 0, n-1);
+}
+
 void printArr(int a[], int n)
 {
     for(int i=0;i<n;++i)
