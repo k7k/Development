@@ -18,8 +18,9 @@ void leftRorate(int a[], int n, int d)
     if (d == 0)
     return;
     
+    /* if the value of k ever exceeds the length of the array */
     if(d>n)
-    d = n%d;
+        d = d%n;
     
     swap(a, 0, d-1);
     swap(a, d, n-1);
